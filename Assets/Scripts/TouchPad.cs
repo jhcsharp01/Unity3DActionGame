@@ -52,8 +52,11 @@ public class TouchPad : MonoBehaviour
             //입력받은 좌표 계산
             Vector3 diff = mousePosition - _startPos;
 
-            //Vector3.Distance(a,b) : 두 점 간의 거리 계산 (정교한 값 계산)
-            //sqrMagnitude : 거리의 제곱에 루트한 값 (단순 계산) : Vector 간의 거리 비교
+            //Vector3.Distance(a,b) : 두 점 간의 거리 계산 (정교한 값 계산) : 게임 로직 짤 때
+            //√(dx² + dy² + dz²)
+
+            //sqrMagnitude : 거리의 제곱에 값 (단순 계산) : Vector 간의 거리 비교 : 판정 체크
+            //dx² + dy² + dz²
             if (diff.sqrMagnitude > _dragRadius * _dragRadius)
             {
                 diff.Normalize(); //방향 벡터 거리 1로 설정
