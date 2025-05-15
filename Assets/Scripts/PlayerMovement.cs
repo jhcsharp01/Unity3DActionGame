@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector3 speed = rbody.linearVelocity;
                 speed.x = 4 * h;
-                speed.y = 4 * v;
+                speed.z = 4 * v;
                 rbody.linearVelocity = speed;
 
                 //방향 전환
