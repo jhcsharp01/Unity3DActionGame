@@ -1,0 +1,20 @@
+1. PlayerMovement.cs에 있는
+파라미터들을 애니메이션 파라미터로
+등록해주세요.
+
+2. Attack 기능 구현
+1. Attack1 : Attack00
+2. Attack2 : Combo1_1
+3. Attack3 : Combo1_2
+4. Attack4 :Combo1_3
+5. Dash : Run01_Front
+6. DashAttack : RunAttack_Front
+7. Skill : Skill
+
+3. 트랜지션 설정
+공격 관련 트랜지션
+   AttackStart -> Combo == true -> Combo == true -> Combo == true
+           <-------------------------------------------------------------------
+   IDLE
+
+4. 공격 진행 방식 : UI의 공격 버튼을 눌렀을 때 실행(Event Trigger)
