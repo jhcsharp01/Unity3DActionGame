@@ -36,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
     //연타 공격에 대한 코루틴 설계
     private IEnumerator Attack()
     {
-        if(Time.time - lastAttackTime > 1f)
+        if (Time.time - lastAttackTime > 1f)
         {
             lastAttackTime = Time.time;
-            while(attacking)
+            while (attacking)
             {
                 animator.SetTrigger("Attack");
                 //애니메이터의 파라미터 중에서 SetTrigger는
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnSkillDown()
     {
-        if(Time.time - lastSkillTime > 1.0f)
+        if (Time.time - lastSkillTime > 1.0f)
         {
             animator.SetBool("Skill", true);
             lastSkillTime = Time.time;
@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnDashUp()
     {
         dashing = false;
+        animator.SetTrigger("Attack");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -90,20 +91,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //애니메이터에 대한 연결이 진행되야 작동하도록 처리합니다.
-        if(animator)
+        if (animator)
         {
             //이동 방향(조절)
             float back = 1f;
             if (v < 0f)
                 back = -1f;
 
-            animator.SetFloat("Speed", new Vector2(h,v).magnitude);
+            animator.SetFloat("Speed", new Vector2(h, v).magnitude);
             //magnitude == 벡터의 길이,크기
 
             Rigidbody rbody = GetComponent<Rigidbody>();
 
             //리지드바디가 연결되어잇을 때
-            if(rbody)
+            if (rbody)
             {
                 Vector3 speed = rbody.linearVelocity;
                 speed.x = 4 * h;
@@ -111,10 +112,11 @@ public class PlayerMovement : MonoBehaviour
                 rbody.linearVelocity = speed;
 
                 //방향 전환
-                if(h != 0f &&  v != 0f)
+                if (h != 0f && v != 0f)
                 {
                     transform.rotation = Quaternion.LookRotation(new Vector3(h, 0f, v));
                 }
             }
         }
     }
+}
