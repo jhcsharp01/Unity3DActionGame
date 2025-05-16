@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Transform player; //플레이어 위치
+    NavMeshAgent nav; //네비메쉬 에이전트
+
+    private void Awake()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        nav = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (nav.enabled)
+        {
+            nav.SetDestination(player.position);
+        }
     }
 }
