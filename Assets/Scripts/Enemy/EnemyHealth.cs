@@ -12,7 +12,9 @@ public class EnemyHealth : MonoBehaviour
     public Color flashColor = new Color(1, 0, 0, 0.1f); //빨간색
     public float sinkSpeed = 1.0f;             //슬라임이 죽으면 아래로 가라앉을 속도
 
-    bool isDead, isSinking, damaged; //적 상태에 따른 bool 값
+    bool isDead, isSinking; //적 상태에 따른 bool 값
+
+    public bool damaged;
 
     private void Awake()
     {
@@ -25,18 +27,19 @@ public class EnemyHealth : MonoBehaviour
         //데미지 처리에 따라 슬라임의 색을 변경하는 코드
         if(damaged)
         {
-            //transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutlineColor", flashColor);
-            transform.GetChild(0).GetComponent<Renderer>().material.color = flashColor;
+            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", flashColor);
+            Debug.Log("체크");
+            
         }
         else
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
-            //transform.GetChild(0).GetComponent<Renderer>().
-            //material.SetColor("_OutlineColor",
-            //Color.Lerp(transform.GetChild(0).
-            //GetComponent<Renderer>().
-            //material.GetColor("_OutlineColor"), Color.black, flashSpeed * Time.deltaTime) );
-        }
+            transform.GetChild(0).GetComponent<Renderer>().
+            material.SetColor("_Color",
+            Color.Lerp(transform.GetChild(0).
+            GetComponent<Renderer>().
+            material.GetColor("_Color"), Color.white, flashSpeed * Time.deltaTime) );
+           
+        }        
         damaged = false;
 
         if(isSinking)
