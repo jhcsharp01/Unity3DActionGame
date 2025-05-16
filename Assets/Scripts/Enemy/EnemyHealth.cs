@@ -25,15 +25,17 @@ public class EnemyHealth : MonoBehaviour
         //데미지 처리에 따라 슬라임의 색을 변경하는 코드
         if(damaged)
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutlineColor", flashColor);
+            //transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutlineColor", flashColor);
+            transform.GetChild(0).GetComponent<Renderer>().material.color = flashColor;
         }
         else
         {
-            transform.GetChild(0).GetComponent<Renderer>().
-            material.SetColor("_OutlineColor",
-            Color.Lerp(transform.GetChild(0).
-            GetComponent<Renderer>().
-            material.GetColor("_OutlineColor"), Color.black, flashSpeed * Time.deltaTime) );
+            transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
+            //transform.GetChild(0).GetComponent<Renderer>().
+            //material.SetColor("_OutlineColor",
+            //Color.Lerp(transform.GetChild(0).
+            //GetComponent<Renderer>().
+            //material.GetColor("_OutlineColor"), Color.black, flashSpeed * Time.deltaTime) );
         }
         damaged = false;
 
