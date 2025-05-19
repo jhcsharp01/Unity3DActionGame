@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
     {
         damaged = true;
 
-        //currentHealth -= amount;
+        currentHealth -= amount;
 
         healthSlider.value = currentHealth;
 
@@ -66,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+        StageController.Instance.FinishGame();
         isDead = true;
         anim.SetTrigger("Die");
         playerMovement.enabled = false; //PlayerMovement에 대한 비활성화

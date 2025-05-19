@@ -27,9 +27,7 @@ public class EnemyHealth : MonoBehaviour
         //데미지 처리에 따라 슬라임의 색을 변경하는 코드
         if(damaged)
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", flashColor);
-            Debug.Log("체크");
-            
+            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", flashColor);       
         }
         else
         {
@@ -84,6 +82,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Death()
     {
+        StageController.Instance.AddPoint(10); //점수 획득
+
         isDead = true;
         //죽었을 때, 맵을 뚫고 아래로 가라앉는 처리를 진행하기 위한 처리
         transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
