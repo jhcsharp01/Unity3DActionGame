@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;        //현재 체력
 
     public float flashSpeed = 5.0f;             //색 변경 시간
-    public Color flashColor = new Color(1, 0, 0, 0.1f); //빨간색
+    public Color flashColor = new Color(1, 0, 0, 0.4f); //빨간색  (컬러에서의 1f = 255)
     public float sinkSpeed = 1.0f;             //슬라임이 죽으면 아래로 가라앉을 속도
 
     bool isDead, isSinking; //적 상태에 따른 bool 값
