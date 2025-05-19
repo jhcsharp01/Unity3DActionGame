@@ -12,7 +12,6 @@ public class EnemyAttack : MonoBehaviour
     bool playerInRange;             //플레이어와의 거리
     float timer;                    //시간 체크 
 
-
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
