@@ -4,12 +4,13 @@ using UnityEngine;
 public class TouchPad : MonoBehaviour
 {
     private RectTransform _touchPad; //UI 위치는 RectTransform
+    public RectTransform _touchBackground;
 
     private int _touchId = -1; //방향 컨트롤러 영역 안에 있는 입력 구분용 아이디
 
     private Vector3 _startPos = Vector3.zero; //입력 시작 좌표
 
-    public float _dragRadius = 60.0f; //방향 컨트롤러 원 움직임용 반지름
+    public float _dragRadius = 0.0f; //방향 컨트롤러 원 움직임용 반지름
 
     public PlayerMovement _player; //방향키 변경에 따라 캐릭터에게 전달
 
@@ -21,14 +22,19 @@ public class TouchPad : MonoBehaviour
         _touchPad = GetComponent<RectTransform>();
         //터치 패드 좌표 (기준 값)
         _startPos = _touchPad.position;
+
+        _dragRadius = _touchBackground.rect.width / 2.0f;
     }
 
     public void ButtonDown()
     {
         _buttonPressed = true;
     }
-    public void ButtonUp() => _buttonPressed = false;
-
+    public void ButtonUp()
+    {
+        _buttonPressed = false;
+        HandleTouchInput();
+    }
 
     private void FixedUpdate()
     {

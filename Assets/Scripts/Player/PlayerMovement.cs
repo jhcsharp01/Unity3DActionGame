@@ -80,17 +80,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Time.time - lastDashTime > 1.0f)
         {
-            dashing = true;
+            //dashing = true;
             lastDashTime = Time.time;
             animator.SetTrigger("Dash");
             playerAttack.DashAttack();
         }
             
-    }
-    public void OnDashUp()
-    {
-        dashing = false;
-        animator.SetTrigger("Attack");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -105,30 +100,17 @@ public class PlayerMovement : MonoBehaviour
         //애니메이터에 대한 연결이 진행되야 작동하도록 처리합니다.
         if (animator)
         {
-            //이동 방향(조절)
-            float back = 1f;
-            if (v < 0f)
-                back = -1f;
-
             animator.SetFloat("Speed", new Vector2(h, v).magnitude);
             //magnitude == 벡터의 길이,크기
 
-            Rigidbody rbody = GetComponent<Rigidbody>();
+    
 
-            //리지드바디가 연결되어잇을 때
-            if (rbody)
-            {
-                Vector3 speed = rbody.linearVelocity;
-                speed.x = 4 * h;
-                speed.z = 4 * v;
-                rbody.linearVelocity = speed;
-
-                //방향 전환
+             //방향 전환
                 if (h != 0f && v != 0f)
                 {
                     transform.rotation = Quaternion.LookRotation(new Vector3(h, 0f, v));
                 }
-            }
+            
         }
     }
 }

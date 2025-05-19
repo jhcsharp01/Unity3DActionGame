@@ -1,0 +1,154 @@
+공격 , 스킬 구현하기
+해당 예제에서 타격에 대한 판정은
+다음과 같이 진행됩니다.
+
+1. 가상의 공격 범위(콜라이더 배치)
+를 통해 몬스터가 해당 위치에 존재하고
+있다면, 그 범위 내에 있는 몬스터에게
+타격 판정이 진행됩니다.
+
+2. 판정은 실제 물리적 충돌이 아닌
+충돌 상태임을 확인하면 처리되도록
+진행하겠습니다.(Trigger)
+
+3. NormalTarget.cs
+   SkillTarget.cs
+   PlayerAttack.cs
+
+[작업 계층 창 확인]
+Player
+  -> NormalTarget
+  -> SkillTarget
+
+4.   NormalTarget 구현
+     NormalTarget 오브젝트 생성
+     Capsule Collider 컴포넌트 연결
+     Transform 설정
+     Position  0 0.8 1.1
+     Capsule Collider
+     Radius 1
+     Height 5
+     Direction : X-Axis
+     Is Trigger 체크
+
+5. SkillTarget 구현
+   SkillTarget 오브젝트 생성
+   Sphere Collider 컴포넌트 연결
+   Collider 반지름 3.5 변경
+   Is Trigger 체크
+
+6. NormalTarget.cs  작성
+7. SkillTarget.cs 작성
+
+현재 타겟 스크립트는 몬스터만
+따로 판정하고 있지 않습니다.
+이 부분에 대한 개선을 진행해주세요.
+
+태그를 활용해 몬스터만 등록
+
+8. PlayerAttack.cs 작성
+   Player에 컴포넌트로 연결
+
+일반 공격
+1. 리스트 조회
+2. 리스트 내에서 EnemyHealth 컴포넌트 확인
+3. 데미지 적용
+
+대시 공격
+1. 리스트 조회
+2. 리스트 내에서 EnemyHealth 컴포넌트 확인
+3. 데미지 적용
+
+스킬 공격
+1. 리스트 조회
+2. 리스트 내에서 EnemyHealth 컴포넌트 확인
+3. 데미지 적용
+
+9. PlayerMovement.cs 수정
+
+10. 프로젝트를 플레이해서 데미지 계산에 대한
+확인을 진행을 합니다.
+
+
+11. 슬라임 생성 작업 진행
+
+12. 플레이어 데미지 받는 효과(화면 색 변환)
+
+13. UI를 통해 화면 이미지 추가
+     이름 DamageImage
+     플레이어 playerHealth에 값 등록
+     Rect Transform -> stretch 모드
+
+14 .UI 충돌 관련 문제 작업
+
+15. 스테이지 관리 코드 설계
+(플레이어나 슬라임 죽을 시의 처리)
+
+
+16. TextUI 연결
+     RectTransform top-center
+     글씨 색 빨간색
+
+스테이지 컨트롤러의 점수를 획득하기
+Enemy가 죽을때 점수 획득
+EnemyHealth.cs 수정
+
+플레이어 사망 시 다시 진행할 수 있도록
+
+StageController에 구현
+
+씬 전환에 대한 페이드 인 / 아웃 효과
+추가
+
+Color
+Lerp
+
+Assets/Scripts/Dialog 폴더 생성
+7개의 클래스 생성
+DialogData.cs
+DialogDataAlert.cs
+DialogDataConfirm.cs
+DialogManager.cs
+DialogController.cs
+DialogControllerAlert.cs
+DialogControllerConfirm.cs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
