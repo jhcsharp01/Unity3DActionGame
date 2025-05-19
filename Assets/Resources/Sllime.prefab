@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5995192488402445932}
   m_Layer: 0
   m_Name: Sllime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
   sinkSpeed: 1
+  damaged: 0
 --- !u!114 &4574371918804469126
 MonoBehaviour:
   m_ObjectHideFlags: 0
