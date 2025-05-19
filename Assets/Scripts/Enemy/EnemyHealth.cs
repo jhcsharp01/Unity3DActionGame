@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int startingHealth = 100; //시작 체력
+    public int startingHealth = 10; //시작 체력
     public int currentHealth;        //현재 체력
 
     public float flashSpeed = 5.0f;             //색 변경 시간

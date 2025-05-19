@@ -1435,9 +1435,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10000
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 10000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2406,11 +2406,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1851056969}
+  - component: {fileID: 1851056984}
+  - component: {fileID: 1851056980}
+  - component: {fileID: 1851056982}
   - component: {fileID: 1851056974}
   - component: {fileID: 1851056972}
   - component: {fileID: 1851056978}
-  - component: {fileID: 1851056982}
-  - component: {fileID: 1851056980}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -4379,6 +4380,23 @@ Transform:
   - {fileID: 1851056905}
   m_Father: {fileID: 1851056981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851056984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850965673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c85d742f9becc4caaa05cce719aa01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalDamage: 10
+  SkillDamage: 20
+  DashDamage: 30
+  normalTarget: {fileID: 452297466}
+  skillTarget: {fileID: 242894837}
 --- !u!4 &1851056985
 Transform:
   m_ObjectHideFlags: 0
