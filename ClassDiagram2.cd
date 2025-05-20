@@ -1,11 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Assets.Scripts.Dialog.DialogController" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="2" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAUgAAIAIAAAACAAEA=</HashCode>
       <FileName>Assets\Scripts\Dialog\DialogController.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogDataQuest">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogDataQuest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogControllerConfirm">
+    <Position X="3" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAUAAAAAACAghAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogControllerConfirm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogControllerQuest">
+    <Position X="0.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAUAAAAAACAghAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogControllerQuest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogData">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogDataAlert">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogDataAlert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogDataConfirm">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogDataConfirm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Dialog.DialogManager">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACABAAAAAAAgAAAAAAAAAADAAAEAQAAAAAEAGAA=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Assets.Scripts.Dialog.DialogType">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Dialog\DialogManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="맑은 고딕" Size="9" />
 </ClassDiagram>
