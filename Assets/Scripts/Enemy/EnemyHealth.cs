@@ -83,6 +83,11 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         StageController.Instance.AddPoint(10); //점수 획득
+        if(StageController.Instance.accecptQuest)
+        {
+            StageController.Instance.QuestData.currentCount++;
+            StageController.Instance.SetData();
+        }
 
         isDead = true;
         //죽었을 때, 맵을 뚫고 아래로 가라앉는 처리를 진행하기 위한 처리
