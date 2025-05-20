@@ -1,21 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Assets.Scripts.Dialog
 {
-	public class DialogDataConfirm : MonoBehaviour
+	public class DialogDataConfirm : DialogData
 	{
+        //프로퍼티
+        //1. 제목
+        //2. 내용
+        //3. 액션
+        public string Title { get; private set; }
 
-		// Use this for initialization
-		void Start()
-		{
+        public string Message { get; private set; }
 
-		}
 
-		// Update is called once per frame
-		void Update()
-		{
+        public Action<bool> Callback {  get; private set; }
 
-		}
-	}
+        public DialogDataConfirm(string title, string message, Action<bool> callback = null) : base(DialogType.Confirm)
+        {
+            Title = title;
+            Message = message;
+            this.Callback = callback;
+        }
+
+        //생성자 
+
+
+
+    }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Dialog
 {
-    public class DialogData : MonoBehaviour
+    public class DialogData 
     {
         public DialogType Type { get; set; }
 
