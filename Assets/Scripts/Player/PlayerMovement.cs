@@ -1,41 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-//1.�ش� ��ũ��Ʈ�� ��� �� �ִϸ����� ������Ʈ�� �䱸�մϴ�.
-// -> �ش� �Ӽ��� ���ԵǾ��ִ� ��ũ��Ʈ�� ������Ʈ�� �������� ���
-//    ������ ���� ó���˴ϴ�.
-//    1. �䱸�ϰ� �ִ� �ִϸ����� ������Ʈ�� ���� ��� �ڵ� �������ݴϴ�.
-//    2. �� ��ũ��Ʈ�� ������Ʈ�� ���Ǵ� ����, � ����
-//       �䱸�ϴ� ������Ʈ�� ������ �� �����ϴ�.
 [RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     Animator animator;
     PlayerAttack playerAttack;
 
-    //���� , ��ų, ��ÿ� ���� �ð�
     float lastAttackTime, lastSkillTime, lastDashTime;
 
     public bool attacking = false;
     public bool dashing = false;
 
-    //UI�� ��Ʈ�ѷ��� ��ġ�ؼ� �� ��Ʈ�ѷ��� �̵��� �����غ� ����
     float h, v;
 
-    //��ƽ�� ��ġ�� ���޹޾Ƽ� x�� y���� ó���մϴ�.
     public void OnStickChanged(Vector2 stickPos)
     {
         h = stickPos.x;
         v = stickPos.y;
     }
-    //UI�� ��ư ���� �̿��ؼ� ������ �����ؾ� �ϹǷ�, ��� ���� �Լ� ������ �����ϴ� ������ ���� ����
-    //XXXDown : ������ �� (1��)
-    //XXXUp : ������ ���� �� (1��)
-    //XXX : ������ �ִ� ����
 
-    //OnAttackUp, OnSkillUp, OnDashUp ���� ������ �����ϱ� ���� ������ ���ǿ� ���� ó���ϴ� �Լ� ==> �÷��� �Լ�
-
-    //��Ÿ ���ݿ� ���� �ڷ�ƾ ����
     private IEnumerator Attack()
     {
         if (Time.time - lastAttackTime > 1f)
@@ -44,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
             while (attacking)
             {
                 animator.SetTrigger("Attack");
-                //�ִϸ������� �Ķ���� �߿��� SetTrigger��
-                //�����ϴ� ������ ������ �ٷ� �����ϰ� �˴ϴ�.
-                //���� ������ ��
                 playerAttack.NormalAttack();
                 yield return new WaitForSeconds(1.0f);
             }
@@ -97,17 +78,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //�ִϸ����Ϳ� ���� ������ ����Ǿ� �۵��ϵ��� ó���մϴ�.
+     
         if (animator)
         {
+            //������� ���� ���, ĳ����, ȸ�� /���⿡ ���� ó��
+      //-------------------------------------------------------------------------------
             float back = 1f;
 
             if (v < 0f) back = -1f;
-
             animator.SetFloat("Speed", new Vector2(h, v).magnitude);
-            //magnitude == ������ ����,ũ��
-            animator.SetFloat("Direction", back * (Mathf.Atan2(h, v) * 180.0f / 3.14159f));
-
+            animator.SetFloat("Direction", back * (Mathf.Atan2(h, v) * Mathf.Rad2Deg));
+            // h , v ����    back     position        
+            // 0, 1           1          front           
+            // 1 , 0          1          right             
+            // 0, -1          -1          back
+            // -1, -1         -1         left
+      //-------------------------------------------------------------------------------
             Rigidbody rigidbody = GetComponent<Rigidbody>();
 
             if (rigidbody)
@@ -115,17 +101,12 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 speed = rigidbody.linearVelocity;
                 speed.x = 4 * h;
                 speed.z = 4 * v;
-
-
-                //���� ��ȯ
+             
                 if (h != 0f && v != 0f)
                 {
                     transform.rotation = Quaternion.LookRotation(new Vector3(h, 0f, v));
                 }
-            }
-
-        
-            
+            }            
         }
     }
 }
